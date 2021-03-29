@@ -11,10 +11,10 @@ iCESugar
 * [Reference](#reference)
 
 # iCESugar
-iCESugar is a FPGA board made by MuseLab, it base on Lattice iCE40UP5k, on board peripheral include RGB LED，Switch，TYPE-C-USB, Micro-USB，most IO out with standard PMOD interface  
+iCESugar is a FPGA board made by MuseLab, which is base on Lattice iCE40UP5k, on board peripherals include RGB LED，Switch，TYPE-C-USB, Micro-USB，most IO out with standard PMOD interface   
 the on board debugger iCELink (base on ARM Mbed DAPLink) support drag-and-drop program, you can just drag the FPGA bitstream into the virtual disk to program, iCELink also support USB CDC serial port and JTAG   
-![icesugar_render](https://github.com/wuxx/icesugar/blob/master/doc/iCESugar_render.jpg)
-![icesugar](https://github.com/wuxx/icesugar/blob/master/doc/iCESugar.jpg)
+iCESugar is the first board of iCESugar series FPGA Board, [iCESugar-nano](https://github.com/wuxx/icesugar-nano)(base on Lattice iCE40LP1k) and [iCESugar-pro](https://github.com/wuxx/icesugar-pro)(base on Lattice ECP5) are already released for difference needs.
+![icesugar_1](https://github.com/wuxx/icesugar/blob/master/doc/iCESugar_1.jpg)
 
 # Hardware
 ### iCE40UP5K
@@ -50,16 +50,23 @@ the env include yosys, nextpnr, icestorm, gcc, sbt.
 recommand use the virtual machine, it simple and convenient  
 FPGA toolchain reference [icestorm](http://www.clifford.at/icestorm/)  
 gcc toolchain reference [riscv-gnu-toolchain](https://pingu98.wordpress.com/2019/04/08/how-to-build-your-own-cpu-from-scratch-inside-an-fpga/)  
+Alternatively, you can download the pre-built toolchain provided by xPack or SiFive
++ https://xpack.github.io/riscv-none-embed-gcc/install/
++ https://www.sifive.com/software
 `icesprog` is command tool for iCESugar program，it depend libusb and hidapi  
 `$sudo apt-get install libhidapi-dev`  
 `$sudo apt-get install libusb-1.0-0-dev`  
 
 # How-to-buy
-currently we only has the board on taobao, [iCESugar FPGA Board](https://item.taobao.com/item.htm?spm=a1z10.1-c-s.w4004-21349689053.18.305e20f8cSEvqA&id=614093598737), if you can't buy it from taobao, maybe you can buy it on aliexpress, just search "icesugar fpga" (not official, somebody copy the link and acts as distributor)
-# reference
-### toolchain
+you can buy iCESugar and PMOD boards from our offcial aliexpress shop [Muse Lab Factory Store](https://muselab-tech.aliexpress.com/store/5940159?spm=a2g0o.detail.1000061.1.7cc733429fQjmK)
+
+# Reference
+### RTL toolchain
 http://www.clifford.at/icestorm/
-### examples
+### Firmware toolchain
+https://xpack.github.io/riscv-none-embed-gcc/install/
+https://www.sifive.com/software
+### Examples
 https://github.com/damdoy/ice40_ultraplus_examples  
 https://github.com/icebreaker-fpga/icebreaker-examples
 ### SpinalHDL
