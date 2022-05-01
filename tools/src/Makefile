@@ -45,6 +45,9 @@ HIDAPI = hidapi-hidraw
 ifeq ($(OS),Windows_NT)
 HIDAPI = hidapi
 endif
+ifeq ($(OS),Darwin)
+HIDAPI = hidapi
+endif
 
 CFLAGS += $(shell pkg-config --cflags $(LIBUSB)) $(shell pkg-config --cflags $(HIDAPI))
 LIBS   += $(shell pkg-config --libs $(LIBUSB))   $(shell pkg-config --libs $(HIDAPI))
@@ -66,9 +69,10 @@ dump:
 	./icesprog -r -l 8388608 chip.bin
 
 deploy:
-	@if [ "$(PLATFORM)" = "x86_64" ]; \
-	then \
+	@if [ "$(PLATFORM)" = "x86_64" ]; then \
 	    cp icesprog ~/oss/icesugar/tools/icesprog.x64; \
-    else \
-	    cp icesprog ~/oss/icesugar/tools/icesprog.arm; \
+    elif [ "$(PLATFORM)" = "armv7l"  ]; then \
+	    cp icesprog ~/oss/icesugar/tools/icesprog.arm32; \
+    elif [ "$(PLATFORM)" = "aarch64"  ]; then \
+	    cp icesprog ~/oss/icesugar/tools/icesprog.arm64; \
     fi
